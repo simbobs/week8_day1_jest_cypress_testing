@@ -128,7 +128,8 @@ it('should clear the running total', () => {
 
   const button2 = container.getByTestId('number2');
   const button3 = container.getByTestId('number3');
-  const divideButton = container.getByTestId('operator-divide');
+
+  const addButton = container.getByTestId('operator_add');
   const multiplyButton = container.getByTestId('operator-multiply');
   const clearButton = container.getByTestId('clear');
  
@@ -138,19 +139,23 @@ it('should clear the running total', () => {
   fireEvent.click(button2);
   fireEvent.click(multiplyButton);
   fireEvent.click(button3);
-  fireEvent.click(divideButton);
-  fireEvent.click(button2);
   fireEvent.click(equalsButton);
 
   fireEvent.click(clearButton);
 
-  expect(runningTotal.textContent).toEqual('0');
+  fireEvent.click(addButton);
+  fireEvent.click(button2);
+  fireEvent.click(equalsButton);
+
+  
+
+  expect(runningTotal.textContent).toEqual('8');
 
   
   
 
 
-})
+});
 
 
 
